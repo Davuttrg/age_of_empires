@@ -17,7 +17,7 @@ const routes: Routes = [
         component: UnitsComponent
       },
       {
-        path: '/:id',
+        path: ':id',
         component: UnitComponent
       }
     ]
