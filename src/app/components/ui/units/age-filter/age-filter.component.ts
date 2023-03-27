@@ -9,24 +9,24 @@ export class AgeFilterComponent implements OnInit {
 
   constructor() { }
 
-  ages: { name: string, value: string }[] = [{
-    name: "All",
+  ages: { title: string, value: string }[] = [{
+    title: "All",
     value: "all"
   },
   {
-    name: "Dark",
+    title: "Dark",
     value: "dark"
   },
   {
-    name: "Feudal",
+    title: "Feudal",
     value: "feudal"
   },
   {
-    name: "Castle",
+    title: "Castle",
     value: "castle"
   },
   {
-    name: "Imperial",
+    title: "Imperial",
     value: "imperial"
   }]
   selectedAge: string = "all"
