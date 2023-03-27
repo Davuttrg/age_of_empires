@@ -1,0 +1,11 @@
+<header>
+  <nav>
+    <a
+      *ngFor="let link of links"
+      [routerLinkActiveOptions]="{ exact: true }"
+      routerLinkActive="active-link"
+      [routerLink]="link.path"
+      >{{ link.title }}</a
+    >
+  </nav>
+</header>

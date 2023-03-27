@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("./styles/variable.scss");
+
+@import url("https://fonts.googleapis.com/css2?family=Anek+Kannada&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Anek Kannada", sans-serif;
+}
