@@ -1,1 +1,12 @@
-<p>cost-filter works!</p>
+<div class="costs">
+  <div class="costs__item" *ngFor="let cost of costs">
+    <input
+      class="costs__item--check"
+      [checked]="cost.is_checked"
+      type="checkbox"
+    />
+    <div class="costs__item--key">{{ cost.title }}</div>
+    <input class="costs__item--slider" type="range" />
+    <div class="costs__item--range">0 - 20</div>
+  </div>
+</div>

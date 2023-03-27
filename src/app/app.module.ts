@@ -20,11 +20,11 @@ import { CostFilterComponent } from './components/ui/units/cost-filter/cost-filt
     HeaderComponent,
     TableComponent,
     AgeFilterComponent,
-    CostFilterComponent
+    CostFilterComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

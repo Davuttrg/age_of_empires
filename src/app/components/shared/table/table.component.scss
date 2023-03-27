@@ -1,0 +1,27 @@
+:host {
+  table {
+    width: 100%;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-main);
+    padding: 1rem;
+    border-spacing: 0px;
+    thead {
+      th {
+        border-bottom: 1px solid var(--border-color);
+        padding: 6px;
+      }
+    }
+    td {
+      padding: 8px 2px;
+      text-align: center;
+    }
+  }
+  tbody {
+    tr {
+      &:hover {
+        cursor: pointer;
+        background: rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+}
