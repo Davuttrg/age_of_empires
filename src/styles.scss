@@ -7,3 +7,9 @@ body {
   margin: 0;
   font-family: "Anek Kannada", sans-serif;
 }
+
+.container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 1rem;
+}

@@ -1,1 +1,10 @@
-<p>age-filter works!</p>
+<div class="ages">
+  <div
+    class="ages__item"
+    (click)="selectedAge = age.value"
+    [class.active]="selectedAge == age.value"
+    *ngFor="let age of ages"
+  >
+    {{ age.name }}
+  </div>
+</div>
