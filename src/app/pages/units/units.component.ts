@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { map, Observable } from 'rxjs';
+import { ICOST, IUnit } from 'src/app/interfaces/Unit';
+import { UnitService } from 'src/app/services/unit.service';
 
 @Component({
   selector: 'app-units',
@@ -8,33 +11,27 @@ import { Router } from '@angular/router';
 })
 export class UnitsComponent implements OnInit {
 
-  constructor(private _router: Router) { }
+  constructor(private _router: Router, private _unitService: UnitService) { }
+  units$!: Observable<IUnit[]>
 
-  tableHeaders = [{
-    field: "id",
-    title: "ID"
-  }, {
-    field: "name",
-    title: "Name"
-  },
-  {
-    field: "age",
-    title: "Age"
-  },
-  {
-    field: "costs",
-    title: "Costs"
-  }]
-
-  units: {}[] = [
-    { id: 1, name: "Archer", age: "Feudal", costs: "Food: 25, Gold:45" },
-    { id: 2, name: "Crossbowman", age: "Castle", costs: "Food: 30, Gold:55" },
-    { id: 3, name: "Arbalest", age: "Imperial", costs: "Wood: 25, Gold:40" }
-  ];
   ngOnInit(): void {
+    this._unitService.loadUnits();
+    this.units$ = this._unitService.getUnits().pipe(map(units => {
+      return units.map((unit) => {
+        return { ...unit, cost: this.costToString(unit.cost as ICOST) }
+      })
+
+    }))
   }
 
-  handleRowClick(unit: { id: string }) {
+  handleRowClick(unit: IUnit) {
     this._router.navigate(["units", unit.id])
+  }
+
+  costToString(cost: ICOST) {
+    if (!cost) return "-"
+    return Object.entries(cost).reduce((str, [p, val]) => {
+      return `${str}${p} ${val} `;
+    }, '');
   }
 }

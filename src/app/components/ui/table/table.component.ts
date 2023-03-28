@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { IUnit } from 'src/app/interfaces/Unit';
 
 @Component({
   selector: 'app-table',
@@ -9,17 +11,13 @@ export class TableComponent implements OnInit {
 
   constructor() { }
 
-  @Input() tableHeaders: {
-    field: string,
-    title: string
-  }[] = []
+  @Input() tableData$!: Observable<IUnit[]>
 
-  @Input() tableData: any[] = []
-  @Output() onRowClick = new EventEmitter<any>()
+  @Output() onRowClick = new EventEmitter<IUnit>();
 
   ngOnInit(): void {
   }
-  handleRowClick(item: {}) {
+  handleRowClick(item: IUnit) {
     this.onRowClick.emit(item)
   }
 

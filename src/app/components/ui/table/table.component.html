@@ -1,0 +1,21 @@
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Costs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      (click)="handleRowClick(entry)"
+      *ngFor="let entry of tableData$ | async"
+    >
+      <td>{{ entry.id }}</td>
+      <td>{{ entry.name }}</td>
+      <td>{{ entry.age }}</td>
+      <td>{{ entry.cost }}</td>
+    </tr>
+  </tbody>
+</table>

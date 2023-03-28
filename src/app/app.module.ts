@@ -7,9 +7,11 @@ import { HomeComponent } from './pages/home/home.component';
 import { UnitComponent } from './pages/units/unit/unit.component';
 import { UnitsComponent } from './pages/units/units.component';
 import { HeaderComponent } from './components/ui/header/header.component';
-import { TableComponent } from './components/shared/table/table.component';
+import { TableComponent } from './components/ui/table/table.component';
 import { AgeFilterComponent } from './components/ui/units/age-filter/age-filter.component';
 import { CostFilterComponent } from './components/ui/units/cost-filter/cost-filter.component';
+import { StoreModule } from '@ngrx/store';
+import { unitsReducer } from './pages/units/units.reducer';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { CostFilterComponent } from './components/ui/units/cost-filter/cost-filt
   imports: [
     BrowserModule,
     AppRoutingModule,
+    StoreModule.forRoot({ units: unitsReducer }),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,6 +9,9 @@
   </section>
   <section>
     <h3>Unit List</h3>
-    <app-table (onRowClick)="handleRowClick($event)" [tableHeaders]="tableHeaders" [tableData]="units"></app-table>
+    <app-table
+      (onRowClick)="handleRowClick($event)"
+      [tableData$]="units$"
+    ></app-table>
   </section>
 </div>
