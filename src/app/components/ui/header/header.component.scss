@@ -3,24 +3,33 @@
     display: flex;
     height: var(--header-height);
     border-bottom: 1px solid var(--border-color);
-    nav {
+    .content {
       display: flex;
-      align-items: center;
-      gap: 1.7rem;
-      justify-content: flex-end;
+      justify-content: space-between;
       width: 100%;
       max-width: var(--max-width);
       margin: auto;
       padding: 1rem;
-      a {
-        text-transform: capitalize;
-        font-size: 1.3rem;
-        text-decoration: none;
-        color: var(--text-color);
-        opacity: 0.7;
-        transition: opacity 0.2s ease-in;
-        &.active-link {
-          opacity: 1;
+      img {
+        width: 80px;
+        max-height: var(--header-height);
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 1.7rem;
+        justify-content: flex-end;
+
+        a {
+          text-transform: capitalize;
+          font-size: 1.3rem;
+          text-decoration: none;
+          color: var(--text-color);
+          opacity: 0.7;
+          transition: opacity 0.2s ease-in;
+          &.active-link {
+            opacity: 1;
+          }
         }
       }
     }

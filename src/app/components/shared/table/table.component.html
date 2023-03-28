@@ -1,24 +1,14 @@
 <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Age</th>
-        <th>Costs</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>Archer</td>
-        <td>Feudal</td>
-        <td>Food: 25, Gold:45</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Crossbowman</td>
-        <td>Castle</td>
-        <td>Wood: 30, Gold:40</td>
-      </tr>
-    </tbody>
-  </table>
+  <thead>
+    <tr>
+      <th *ngFor="let header of tableHeaders">
+        {{ header.title }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr (click)="handleRowClick(entry)" *ngFor="let entry of tableData">
+      <td *ngFor="let header of tableHeaders">{{ entry[header.field] }}</td>
+    </tr>
+  </tbody>
+</table>

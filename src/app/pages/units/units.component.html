@@ -8,6 +8,7 @@
     <app-cost-filter></app-cost-filter>
   </section>
   <section>
-    <app-table></app-table>
+    <h3>Unit List</h3>
+    <app-table (onRowClick)="handleRowClick($event)" [tableHeaders]="tableHeaders" [tableData]="units"></app-table>
   </section>
 </div>
