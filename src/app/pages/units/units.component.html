@@ -1,11 +1,11 @@
 <div class="app-container">
   <section>
     <h3>Ages</h3>
-    <app-age-filter></app-age-filter>
+    <app-age-filter (onClickAge)="handleClickAge($event)" [selectedAge]="filter.age"></app-age-filter>
   </section>
   <section>
     <h3>Costs</h3>
-    <app-cost-filter></app-cost-filter>
+    <app-cost-filter (onUpdateFilter)="handleUpdateCostFilter($event)" [selectedCosts]="filter.costs"></app-cost-filter>
   </section>
   <section>
     <h3>Unit List</h3>

@@ -1,12 +1,21 @@
 <div class="costs">
-  <div class="costs__item" *ngFor="let cost of costs">
+  <div class="costs__item" *ngFor="let cost of getCostsBySelected(costs)">
     <input
+      (change)="handleCheckCost(cost)"
       class="costs__item--check"
       [checked]="cost.is_checked"
       type="checkbox"
     />
     <div class="costs__item--key">{{ cost.title }}</div>
-    <input class="costs__item--slider" type="range" />
-    <div class="costs__item--range">0 - 20</div>
+    <input
+      [disabled]="!cost.is_checked"
+      class="costs__item--slider"
+      [max]="200"
+      [value]="cost.range"
+      type="range"
+      #ranger
+      (change)="rangeChange(ranger.valueAsNumber, cost.key)"
+    />
+    <div class="costs__item--range">0 - {{ cost.range }}</div>
   </div>
 </div>

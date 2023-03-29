@@ -1,7 +1,7 @@
 <div class="ages">
   <div
     class="ages__item"
-    (click)="selectedAge = age.value"
+    (click)="handleClickAge(age.value)"
     [class.active]="selectedAge == age.value"
     *ngFor="let age of ages"
   >

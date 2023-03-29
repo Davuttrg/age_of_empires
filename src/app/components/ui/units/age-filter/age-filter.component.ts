@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-age-filter',
@@ -11,7 +11,7 @@ export class AgeFilterComponent implements OnInit {
 
   ages: { title: string, value: string }[] = [{
     title: "All",
-    value: "all"
+    value: ""
   },
   {
     title: "Dark",
@@ -29,9 +29,15 @@ export class AgeFilterComponent implements OnInit {
     title: "Imperial",
     value: "imperial"
   }]
-  selectedAge: string = "all"
+
+  @Input() selectedAge!: string;
+  @Output() onClickAge: EventEmitter<string> = new EventEmitter();
 
   ngOnInit(): void {
+  }
+  handleClickAge(age: string) {
+    this.selectedAge = age;
+    this.onClickAge.emit(age)
   }
 
 }

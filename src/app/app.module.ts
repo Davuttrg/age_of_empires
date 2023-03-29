@@ -12,6 +12,7 @@ import { AgeFilterComponent } from './components/ui/units/age-filter/age-filter.
 import { CostFilterComponent } from './components/ui/units/cost-filter/cost-filter.component';
 import { StoreModule } from '@ngrx/store';
 import { unitsReducer } from './pages/units/units.reducer';
+import { filterReducer } from './pages/units/filter.reducer';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { unitsReducer } from './pages/units/units.reducer';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({ units: unitsReducer }),
+    StoreModule.forRoot({ units: unitsReducer,filter:filterReducer }),
   ],
   providers: [],
   bootstrap: [AppComponent]
