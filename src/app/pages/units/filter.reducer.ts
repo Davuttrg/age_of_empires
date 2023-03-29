@@ -23,5 +23,5 @@ export const filterReducer = createReducer(
     on(updateFilter, (state, { data }) => {
         return data
     }),
-    on(clear, (state) => { return initialState })
+    on(clear, (state) => { return { ...state, age: "" } })
 );
