@@ -15,17 +15,9 @@
     <div>Min. Required Age</div>
     <div>{{ unit.age }}</div>
   </div>
-  <div class="row">
-    <div>Wood Cost</div>
-    <div>{{ getGoodByKey(unit, "Wood") }}</div>
-  </div>
-  <div class="row">
-    <div>Food Cost</div>
-    <div>{{ getGoodByKey(unit, "Food") }}</div>
-  </div>
-  <div class="row">
-    <div>Gold Cost</div>
-    <div>{{ getGoodByKey(unit, "Gold") }}</div>
+  <div class="row" *ngFor="let item of getGoodsCost(unit)">
+    <div>{{ item.cost }} Cost</div>
+    <div>{{ item.value }}</div>
   </div>
   <div class="row">
     <div>Build Time</div>

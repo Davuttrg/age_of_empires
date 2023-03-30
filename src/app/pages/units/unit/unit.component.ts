@@ -22,8 +22,20 @@ export class UnitComponent implements OnInit {
     this.unit$ = this._unitService.getById(Number(id));
 
   }
-  getGoodByKey(unit: IUnit, key: ISingleCost) {
-    return (unit.cost as ICOST)[key] || "-"
+  getGoodsCost(unit: IUnit): { cost: ISingleCost, value: number }[] {
+    return [
+      {
+        cost: "Wood",
+        value: (unit.cost as ICOST).Wood || 0
+      },
+      {
+        cost: "Food",
+        value: (unit.cost as ICOST).Food || 0
+      },
+      {
+        cost: "Gold",
+        value: (unit.cost as ICOST).Gold || 0
+      }
+    ]
   }
-
 }
