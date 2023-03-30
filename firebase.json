@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "dist/age_of_empires",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
