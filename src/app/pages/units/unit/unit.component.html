@@ -1,1 +1,50 @@
-<p>unit works!</p>
+<div class="unit" *ngIf="unit$ | async; let unit">
+  <div class="row">
+    <div>ID</div>
+    <div>{{ unit.id }}</div>
+  </div>
+  <div class="row">
+    <div>Name</div>
+    <div>{{ unit.name }}</div>
+  </div>
+  <div class="row">
+    <div>Description</div>
+    <div>{{ unit.description }}</div>
+  </div>
+  <div class="row">
+    <div>Min. Required Age</div>
+    <div>{{ unit.age }}</div>
+  </div>
+  <div class="row">
+    <div>Wood Cost</div>
+    <div>{{ getGoodByKey(unit, "Wood") }}</div>
+  </div>
+  <div class="row">
+    <div>Food Cost</div>
+    <div>{{ getGoodByKey(unit, "Food") }}</div>
+  </div>
+  <div class="row">
+    <div>Gold Cost</div>
+    <div>{{ getGoodByKey(unit, "Gold") }}</div>
+  </div>
+  <div class="row">
+    <div>Build Time</div>
+    <div>{{ unit.build_time }}</div>
+  </div>
+  <div class="row">
+    <div>Reload Time</div>
+    <div>{{ unit.reload_time }}</div>
+  </div>
+  <div class="row">
+    <div>Hit Points</div>
+    <div>{{ unit.hit_points }}</div>
+  </div>
+  <div class="row">
+    <div>Attack</div>
+    <div>{{ unit.attack }}</div>
+  </div>
+  <div class="row">
+    <div>Accuracy</div>
+    <div>{{ unit.accuracy }}</div>
+  </div>
+</div>

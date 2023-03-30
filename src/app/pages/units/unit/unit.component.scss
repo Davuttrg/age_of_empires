@@ -1,0 +1,19 @@
+:host {
+  .unit {
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem;
+    > div {
+      display: flex;
+      > div {
+        flex: 1;
+        padding: 10px;
+      }
+      &:not(:last-child) {
+        > div {
+          border-bottom: 1px solid var(--border-color);
+        }
+      }
+    }
+  }
+}

@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { IUnit } from '../interfaces/Unit';
 import { IFilter, updateFilter, clear } from '../pages/units/filter.reducer';
-import { load } from '../pages/units/units.reducer';
+import { getItemById, load } from '../pages/units/units.reducer';
 import { UNITS } from './units';
 
 @Injectable({
@@ -10,7 +11,7 @@ import { UNITS } from './units';
 })
 export class UnitService {
 
-  constructor(private _store: Store<{ units: IUnit[], filter: IFilter }>) { }
+  constructor(private _store: Store<any>) { }
   loadUnits() {
     this._store.dispatch(load({ data: UNITS }))
   }
@@ -25,6 +26,9 @@ export class UnitService {
   }
   clearFilter() {
     this._store.dispatch(clear())
+  }
+  getById(id: number) {
+    return this._store.select(getItemById(id)) as Observable<IUnit>
   }
 
 }

@@ -42,7 +42,7 @@ export class UnitsComponent implements OnInit {
       switchMap(([units, filter]) => {
         return of(
           units
-            .filter(unit => filter.age ? unit.age?.toLowerCase() == filter.age : true)
+            .filter((unit: IUnit) => filter.age ? unit.age?.toLowerCase() == filter.age : true)
             .filter((unit: IUnit) => {
               if (!filter.age && !filter.costs.length) return true;
 
@@ -51,12 +51,12 @@ export class UnitsComponent implements OnInit {
               if (!costs) return false;
 
               return Object.keys(costs).every((key) => {
-                const item = filter.costs.find((c) => key == c.good) as IFilterCost;
+                const item = filter.costs.find((cost: IFilterCost) => key == cost.good) as IFilterCost;
                 return item ? costs[key as ISingleCost] as number <= item?.range : false
               })
 
             })
-            .map((unit) => {
+            .map((unit: IUnit) => {
               return { ...unit, cost: this.costToString(unit.cost as ICOST) }
             })
         )
