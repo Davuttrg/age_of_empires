@@ -6,6 +6,9 @@
     padding: 1rem;
     border-spacing: 0px;
     thead {
+      position: sticky;
+      top: 0;
+      background: white;
       th {
         border-bottom: 1px solid var(--border-color);
         padding: 6px;
